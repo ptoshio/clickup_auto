@@ -1,0 +1,30 @@
+name: Python Script Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      scriptPath:
+        description: 'Path to Python script'
+        required: true
+        default: 'script.py'
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt  # Add any required dependencies to a requirements.txt file
+
+      - name: Run Python script
+        run: python ${{ github.workspace }}/${{ github.event.inputs.scriptPath }}
+        env:
+          CLICKUP_API_KEY: ${{ secrets.CLICKUP_API_KEY }}
