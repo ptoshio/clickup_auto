@@ -7,6 +7,10 @@ on:
         description: 'Path to Python script'
         required: true
         default: 'script.py'
+      taskID:
+        description: 'Task ID'
+        required: true
+
 
 jobs:
   run_script:
