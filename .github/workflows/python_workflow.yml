@@ -29,4 +29,4 @@ jobs:
         run: pip install -r requirements.txt  # Add any required dependencies to a requirements.txt file
 
       - name: Run Python script
-        run: python ${{ github.workspace }}/script.py
+        run: python script.py
