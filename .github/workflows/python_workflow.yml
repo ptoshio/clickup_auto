@@ -1,16 +1,9 @@
 name: Python Script Workflow
 
 on:
-  workflow_dispatch:
-    inputs:
-      scriptPath:
-        description: 'Path to Python script'
-        required: true
-        default: 'script.py'
-      taskID:
-        description: 'Task ID'
-        required: true
-
+  push:
+    branches:
+      - master
 
 jobs:
   run_script:
