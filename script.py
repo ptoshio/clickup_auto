@@ -4,11 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pyclickup import ClickUp
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--task_id', type=str, required=True)
-args = parser.parse_args()
+#parser = argparse.ArgumentParser()
+#parser.add_argument('--task_id', type=str, required=True)
+#args = parser.parse_args()
 
-task_id = args.task_id
+task_id = '8685kny3y' #args.task_id
 
 clickup = ClickUp("pk_75330699_8IIHQQANMOBS4UWKJNPP28VPXPIF0LNU")
 
@@ -20,8 +20,8 @@ task_add = []
 #['Nome_Task', 'ID_Task', 'Dev', 'Celula', 'Qualidade_doc', 'Paggo Scorer', 'Dev Back', 'Dev Front', 'Paggo Back', 'Paggo Front']
 for task in prodev.projects[1].lists[2].get_all_tasks(include_closed = True):
     if task.id == task_id:
-      task_add = [task.name, task.id, task.assignees, task.custom_fields[4], task.custom_fields[5], task.custom_fields[8], task.custom_fields[11], 
-                  task.custom_fields[12], task.custom_fields[13], task.custom_fields[14]
+      task_add = [task.name, task.id, task.assignees, task.custom_fields[4], task.custom_fields[6], task.custom_fields[9], task.custom_fields[12], 
+                task.custom_fields[13], task.custom_fields[14], task.custom_fields[15]]
 
 # Create a DataFrame from the new row data
 new_row_df = pd.DataFrame(task_add)
