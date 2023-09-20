@@ -1,8 +1,9 @@
 name: Python Script Workflow
 
 on:
-  repository_dispatch:
-    types: [taskUpdated]
+  push:
+    branches:
+      -main
 
 jobs:
   run_script:
